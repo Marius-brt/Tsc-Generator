@@ -1,7 +1,7 @@
 {
   "name": "tsc-generator",
-  "version": "1.0.1",
-  "description": "Generate a typescript project quickly",
+  "version": "1.0.2",
+  "description": "Generate a typescript project quickly.",
   "main": "src/index.js",
   "bin": {
     "tsc-generator": "src/index.js"

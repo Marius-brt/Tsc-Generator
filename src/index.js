@@ -29,6 +29,12 @@ fs.readdir(process.cwd(), (err, files) => {
         },
         {
           type: "list",
+          name: "git",
+          message: "Init git",
+          choices: ["yes", "no"],
+        },
+        {
+          type: "list",
           name: "advanced",
           message: "Advanced config",
           choices: ["yes", "no"],
@@ -106,14 +112,19 @@ function generateProject(basic, options) {
       build: "tsc",
       prepare: "tsc && npm run lint && npm run format",
     },
-    repository: {
-      type: "git",
-      url: "",
-    },
     files: [`${dir}/**/*`],
     author: "",
     license: "ISC",
   };
+  if (basic.git == "yes") {
+    projectSettings.repository = {
+      type: "git",
+      url: "",
+    };
+    fs.writeFileSync(resolve("./.gitignore"), `node_modules\n${dir}`, {
+      encoding: "utf-8",
+    });
+  }
   if (options.jest == "yes") {
     projectSettings.scripts.test = "jest --config jestconfig.json";
     packages.push("jest");
@@ -225,9 +236,6 @@ function generateProject(basic, options) {
       'console.log("Hello world!");',
       { encoding: "utf-8" }
     );
-    fs.writeFileSync(resolve("./.gitignore"), `node_modules\n${dir}`, {
-      encoding: "utf-8",
-    });
     console.log(color.green(`> Files created.`));
     const load = loading({
       text: color.green(`Installing dependencies`),
@@ -237,7 +245,9 @@ function generateProject(basic, options) {
     });
     load.start();
     shell.exec(
-      `npm i --save-dev ${packages.join(" ")}`,
+      `npm i --save-dev ${packages.join(" ")}${
+        basic.git == "yes" ? " && git init" : ""
+      }`,
       { silent: true },
       (code) => {
         load.stop();

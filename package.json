@@ -17,5 +17,9 @@
     "cli",
     "generate",
     "project"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Marius-brt/Tsc-Generator"
+  }
 }

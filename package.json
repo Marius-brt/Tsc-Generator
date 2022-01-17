@@ -11,5 +11,11 @@
     "inquirer": "^8.2.0",
     "loading-cli": "^1.1.0",
     "shelljs": "^0.8.5"
-  }
+  },
+  "keywords": [
+    "typescript",
+    "cli",
+    "generate",
+    "project"
+  ]
 }

@@ -1,0 +1,15 @@
+{
+  "name": "tsc-generator",
+  "version": "1.0.0",
+  "description": "Generate a typescript project quickly",
+  "main": "index.js",
+  "bin": "index.js",
+  "author": "marius.brt",
+  "license": "ISC",
+  "dependencies": {
+    "ansi-colors": "^4.1.1",
+    "inquirer": "^8.2.0",
+    "loading-cli": "^1.1.0",
+    "shelljs": "^0.8.5"
+  }
+}

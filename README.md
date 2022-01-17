@@ -1,6 +1,6 @@
 # TSC Generator
 
-Generate a TypeScript project in one line.
+Generate a TypeScript project in one line. Tsc generator create tsconfig. It can also add linter (eslint), formater (prettier) and jest with there config files.
 
 ## Installation
 

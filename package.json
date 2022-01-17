@@ -1,9 +1,11 @@
 {
   "name": "tsc-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate a typescript project quickly",
-  "main": "index.js",
-  "bin": "index.js",
+  "main": "src/index.js",
+  "bin": {
+    "tsc-generator": "src/index.js"
+  },
   "author": "marius.brt",
   "license": "ISC",
   "dependencies": {
